@@ -18,7 +18,7 @@ export type getDictionaryResponse = {
 async function getDictionary(lang: string): Promise<getDictionaryResponse> {
     try {
         const response = await fetch(
-            `http://localhost:3000/api/dictionaries/${lang}`,
+            `https://spelling-bee-indol.vercel.app/api/dictionaries/${lang}`,
             { cache: 'no-store' }
         );
         const data = await response.json();
