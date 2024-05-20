@@ -258,7 +258,9 @@ const Game: React.FC<GameProps> = ({ data, lang }) => {
                 {submittedWords && submittedWords.length > 0 && (
                     <div className="self-start pl-4 border-l-[1px] border-l-gray-400 h-[600px]">
                         <h2 className="text-xl border-b-2 border-b-gray-300 ">
-                            Submitted Words
+                            {lang === 'en'
+                                ? 'Submitted Words'
+                                : 'Eklenmiş Kelimeler'}
                         </h2>
                         <ul className="text-lg uppercase mt-4">
                             {submittedWords.map((word, index) => (
