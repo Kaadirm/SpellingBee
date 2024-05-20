@@ -12,16 +12,6 @@ export default function languageMiddleware(req: NextRequest) {
         defaultLanguage = 'tr';
     }
 
-    // if (!req.nextUrl.pathname.startsWith(`/${defaultLanguage}`) && !req.nextUrl.pathname.startsWith(`/api`)) {
-    //     const redirectUrl = new URL(defaultLanguage, req.url).toString(); // Convert URL object to string
-    //     return NextResponse.redirect(redirectUrl);
-    // }
-
-    // if (req.nextUrl.pathname === "/") {
-    //     const redirectUrl = new URL(defaultLanguage, req.url).toString(); // Convert URL object to string
-    //     return NextResponse.redirect(redirectUrl);
-    // }
-
     const { pathname } = req.nextUrl
     const pathnameHasLocale = locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`

@@ -1,12 +1,15 @@
 // components/Score.tsx
 interface ScoreProps {
+    lang: string;
     score: number;
 }
 
-const Score: React.FC<ScoreProps> = ({ score }) => {
+const Score: React.FC<ScoreProps> = ({ lang, score }) => {
     return (
         <div>
-            <h2 className="text-2xl text-blue-500">Score: {score}</h2>
+            <h2 className="text-2xl text-blue-500">
+                {lang === 'en' ? 'Score' : 'Skor'}: {score}
+            </h2>
         </div>
     );
 };

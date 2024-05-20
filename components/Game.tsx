@@ -130,22 +130,17 @@ const Game: React.FC<GameProps> = ({ data, lang }) => {
                             <AchievementPopup lang={lang} />
                         </div>
                     )}
-
-                    {/* <div className="absolute -top-12">
-                        <AchievementPopup lang={lang} />
-                    </div> */}
                     <h1 className="text-4xl font-bold mb-4">
-                        {lang === 'en'
-                            ? 'English Spelling Bee'
-                            : 'Türkçe Heceleme Arısı'}
+                        {lang === 'en' ? 'Spelling Bee' : 'Heceleme Oyunu'}
                     </h1>
                     <div className="flex gap-8">
                         <Timer
+                            lang={lang}
                             letters={letters}
                             time={time}
                             setTime={setTime}
                         />
-                        <Score score={score} />
+                        <Score lang={lang} score={score} />
                     </div>
                     <div className="hexagon-container flex uppercase text-2xl font-bold">
                         <div className="translate-x-8">
