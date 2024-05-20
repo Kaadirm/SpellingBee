@@ -39,15 +39,13 @@ export const getRandomLetters = (
 
         if (
             !vowelArray.includes(letters[randomIndex]) &&
-            vowelArray.includes(randomLetter)
+            vowelArray.includes(randomLetter) &&
+            !letters.includes(randomLetter)
         ) {
             letters[randomIndex] = randomLetter;
             vowelCount++;
         }
     }
-
-
-
     // dictionary.forEach(word => {
     //     letters.forEach(letter => {
     //         if(word.includes(letter)){

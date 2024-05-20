@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic';
 
 export const GET = async () => {
     try {
-        const randomLetters = getRandomLetters(dictionary, 'en');
+        const randomLetters = getRandomLetters(dictionary, 'tr');
         return Response.json({ randomLetters, dictionary, msg: 'Success', status: 200 });
     } catch (error) {
         return Response.json({ msg: 'An error occurred while processing the data.', status: 500 });

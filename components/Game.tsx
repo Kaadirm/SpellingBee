@@ -4,8 +4,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Timer from './Timer';
 import Score from './Score';
+import AchievementPopup from './AchievementPopup';
 import { getDictionaryResponse } from '@/app/[lang]/page';
-import Popup from './Popup';
 
 interface GameProps {
     lang: string;
@@ -13,16 +13,16 @@ interface GameProps {
 }
 
 const Game: React.FC<GameProps> = ({ data, lang }) => {
-    console.log(data);
     const [letters, setLetters] = useState<string[]>(data.randomLetters);
-    // const [dictionary, setDictionary] = useState<string[]>([]);
     const [dictionary, setDictionary] = useState<string[]>(data.dictionary);
     const [word, setWord] = useState('');
     const [score, setScore] = useState(0);
     const [time, setTime] = useState(60);
     const [submittedWords, setSubmittedWords] = useState<string[]>([]); // Track submitted words
-    const [isGameOver, setIsGameOver] = useState(false); // Track game over state
+    const [isGameOver, setIsGameOver] = useState<boolean>(false); // Track game over state
     const inputRef = useRef(null);
+    const [isAchievementPopupOpen, setIsAchievementPopupOpen] =
+        useState<boolean>(false);
 
     const handleInputClick = () => {
         if (inputRef.current) {
@@ -100,8 +100,12 @@ const Game: React.FC<GameProps> = ({ data, lang }) => {
         if (dictionary.includes(word.toLowerCase())) {
             setScore(score + word.length * 10);
             setTime(time + 15);
-            setSubmittedWords([...submittedWords, word.toLowerCase()]); // Add the word to the list of submitted words
+            setSubmittedWords([...submittedWords, word.toLowerCase()]);
             setWord('');
+            setIsAchievementPopupOpen(true);
+            setTimeout(() => {
+                setIsAchievementPopupOpen(false);
+            }, 1000);
         } else {
             alert('Invalid word.');
         }
@@ -120,7 +124,16 @@ const Game: React.FC<GameProps> = ({ data, lang }) => {
     return (
         <div className="flex items-center justify-center min-h-screen py-2">
             <div className="flex gap-8">
-                <div className="flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center justify-center relative">
+                    {isAchievementPopupOpen && (
+                        <div className="absolute -top-12">
+                            <AchievementPopup lang={lang} />
+                        </div>
+                    )}
+
+                    {/* <div className="absolute -top-12">
+                        <AchievementPopup lang={lang} />
+                    </div> */}
                     <h1 className="text-4xl font-bold mb-4">
                         {lang === 'en'
                             ? 'English Spelling Bee'
@@ -248,17 +261,18 @@ const Game: React.FC<GameProps> = ({ data, lang }) => {
                     </form>
                 </div>
                 {submittedWords && submittedWords.length > 0 && (
-                    <div className="self-start pl-4 border-l-2 border-l-black h-[600px]">
-                        <h2 className="text-2xl ">Submitted Words</h2>
+                    <div className="self-start pl-4 border-l-[1px] border-l-gray-400 h-[600px]">
+                        <h2 className="text-xl border-b-2 border-b-gray-300 ">
+                            Submitted Words
+                        </h2>
                         <ul className="text-lg uppercase mt-4">
                             {submittedWords.map((word, index) => (
-                                <li key={index}>{word}</li>
+                                <li key={index}>- {word}</li>
                             ))}
                         </ul>
                     </div>
                 )}
             </div>
-            {/* <Popup duration={2} content="hello" /> */}
         </div>
     );
 };

@@ -66,3 +66,16 @@ body {
   /* clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); */
   clip-path: polygon(50% -50%, 100% 50%, 50% 150%, 0 50%)
 }
+
+
+.popup {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.popup.show {
+  opacity: 1;
+}
+
+.popup.hide {
+  opacity: 0;
+}
