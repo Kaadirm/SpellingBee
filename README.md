@@ -4,6 +4,8 @@
 
 This is a simple spelling bee game built with Next.js and TypeScript. The game supports multiple languages and includes features such as fetching dictionary data, handling user input, and tracking scores.
 
+![SpellingBee](https://github.com/Kaadirm/SpellingBee/assets/141996672/3e216bc1-44c0-4676-8d5a-85f0c2770897)
+
 ## Table of Contents
 
 -   [Getting Started](#getting-started)
