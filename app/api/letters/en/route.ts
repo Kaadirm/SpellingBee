@@ -1,5 +1,6 @@
 import { getRandomLetters } from '@/utils/getRandomLetters';
 import dictionary from "@/public/dictonaries/english.json";
+export const dynamic = 'force-dynamic';
 
 export const GET = async () => {
     try {

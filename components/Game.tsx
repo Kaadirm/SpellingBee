@@ -43,7 +43,7 @@ const Game: React.FC<GameProps> = ({ data, lang }) => {
     // }, [lang]);
 
     const newGame = async () => {
-        const res = await fetch(`/api/letters/${lang}`);
+        const res = await fetch(`/api/letters/${lang}`, { cache: 'no-store' });
         const data = await res.json();
         setLetters(data.randomLetters);
         setScore(0);

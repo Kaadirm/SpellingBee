@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { NextResponse } from 'next/server';
 import { getRandomLetters } from '@/utils/getRandomLetters';
 import dictionary from "@/public/dictonaries/english.json";
+export const dynamic = 'force-dynamic';
 
 export const GET = async () => {
     try {
