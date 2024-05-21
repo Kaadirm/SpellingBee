@@ -40,39 +40,39 @@ To get started with this project, follow these steps:
 
 Here is the folder structure of the project:
 
-app
-├── [lang]
-│ ├── layout.tsx
-│ └── page.tsx
-├── api
-│ ├── dictionaries
-│ │ ├── en
-│ │ │ └── route.ts
-│ │ └── tr
-│ │ └── route.ts
-│ └── letters
-│ ├── en
-│ │ └── route.ts
-│ └── tr
-│ └── route.ts
-components
-├── AchievementPopup.tsx
-├── Game.tsx
-├── GameSkeleton.tsx
-├── LetterHive.tsx
-├── Score.tsx
-└── Timer.tsx
-public
-├── assets
-└── dictionaries
-├── english.json
-└── turkish.json
-styles
-└── globals.css
-utils
-└── getRandomLetters.ts
-│
-middleware.ts
+app <br/>
+├── [lang] <br/>
+│ ├── layout.tsx <br/>
+│ └── page.tsx <br/>
+├── api <br/>
+│ ├── dictionaries <br/>
+│ │ ├── en <br/>
+│ │ │ └── route.ts <br/>
+│ │ └── tr <br/>
+│ │ └── route.ts <br/>
+│ └── letters <br/>
+│ ├── en <br/>
+│ │ └── route.ts <br/>
+│ └── tr <br/>
+│ └── route.ts <br/>
+components <br/>
+├── AchievementPopup.tsx <br/>
+├── Game.tsx <br/>
+├── GameSkeleton.tsx <br/>
+├── LetterHive.tsx <br/>
+├── Score.tsx <br/>
+└── Timer.tsx <br/>
+public <br/>
+├── assets <br/>
+└── dictionaries <br/>
+├── english.json <br/>
+└── turkish.json <br/>
+styles <br/>
+└── globals.css <br/>
+utils <br/>
+└── getRandomLetters.ts <br/>
+│ <br/>
+middleware.ts <br/>
 
 ## Available Scripts
 
