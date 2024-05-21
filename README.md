@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Spelling Bee Game
+
+[Live Demo](https://spelling-bee-indol.vercel.app)
+
+This is a simple spelling bee game built with Next.js and TypeScript. The game supports multiple languages and includes features such as fetching dictionary data, handling user input, and tracking scores.
+
+## Table of Contents
+
+-   [Getting Started](#getting-started)
+-   [Folder Structure](#folder-structure)
+-   [Available Scripts](#available-scripts)
+-   [API Routes](#api-routes)
+-   [Components](#components)
+-   [Styling](#styling)
+-   [License](#license)
 
 ## Getting Started
 
-First, run the development server:
+To get started with this project, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/your-username/spelling-bee-game.git
+    ```
+2. Navigate into the project directory:
+    ```sh
+    cd spelling-bee-game
+    ```
+3. Install the dependencies:
+    ```sh
+    npm install
+    ```
+4. Run the development server:
+    ```sh
+    npm run dev
+    ```
+5. Open your browser and go to `http://localhost:3000`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Folder Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Here is the folder structure of the project:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+app
+├── [lang]
+│ ├── layout.tsx
+│ └── page.tsx
+├── api
+│ ├── dictionaries
+│ │ ├── en
+│ │ │ └── route.ts
+│ │ └── tr
+│ │ └── route.ts
+│ └── letters
+│ ├── en
+│ │ └── route.ts
+│ └── tr
+│ └── route.ts
+components
+├── AchievementPopup.tsx
+├── Game.tsx
+├── GameSkeleton.tsx
+├── LetterHive.tsx
+├── Score.tsx
+└── Timer.tsx
+public
+├── assets
+└── dictionaries
+├── english.json
+└── turkish.json
+styles
+└── globals.css
+utils
+└── getRandomLetters.ts
+│
+middleware.ts
 
-## Learn More
+## Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+In the project directory, you can run:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### `npm run dev`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Deploy on Vercel
+### `npm run build`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Builds the app for production to the `out` folder.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### `npm run start`
+
+Starts the production build.
+
+## API Routes
+
+### Dictionaries and Letters
+
+-   `/api/dictionaries/en`
+-   `/api/dictionaries/tr`
+
+These endpoints fetch dictionary and random letters data based on the language.
+
+### Letters
+
+-   `/api/letters/en`
+-   `/api/letters/tr`
+
+These endpoints fetch random letters for the game based on the language.
+
+## Components
+
+### `Game.tsx`
+
+The main component for the game logic, including:
+
+-   Handling user input (User Input letters styled according to letters which user must use)
+-   Fetching dictionary data
+-   Managing game state (score, timer, submitted words)
+
+### `Timer.tsx`
+
+A component for the game timer.
+
+### `Score.tsx`
+
+A component to display the player's score.
+
+### `AchievementPopup.tsx`
+
+A component to display achievement notifications.
+
+## Styling
+
+Global styles are located in `styles/globals.css`.
+
+## Middleware
+
+### `middleware.ts`
+
+The middleware is used to redirect users to a language-specific path based on their browser's `accept-language` header.
+
+## License
+
+This project is licensed under the MIT License.
